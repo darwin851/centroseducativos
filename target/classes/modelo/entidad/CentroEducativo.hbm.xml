@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 sep. 2021 19:37:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.entidad.CentroEducativo" table="centro_educativo" schema="public" optimistic-lock="version">
+        <comment>Entidad que registra los datos generales de los Centros Educativos</comment>
+        <id name="idCentroEducativo" type="int">
+            <column name="id_centro_educativo" />
+            <generator class="assigned" />
+        </id>
+        <property name="departamento" type="string">
+            <column name="departamento" length="50">
+                <comment>Define el nombre del departamento</comment>
+            </column>
+        </property>
+        <property name="municipio" type="string">
+            <column name="municipio" length="50">
+                <comment>Define el nombre del municipio</comment>
+            </column>
+        </property>
+        <property name="canton" type="string">
+            <column name="canton" length="50">
+                <comment>Define el nombre del canton</comment>
+            </column>
+        </property>
+        <property name="codigoCentroEducativo" type="string">
+            <column name="codigo_centro_educativo" length="25">
+                <comment>C\F3digo de infraestructura asignado al centro educativo</comment>
+            </column>
+        </property>
+        <property name="centroEducativo" type="string">
+            <column name="centro_educativo" length="300">
+                <comment>Nombre del centro educativo</comment>
+            </column>
+        </property>
+        <property name="sector" type="string">
+            <column name="sector" length="100">
+                <comment>Define el sector al que pertenece el centro educativo (Rural, Urbano)</comment>
+            </column>
+        </property>
+        <property name="zona" type="string">
+            <column name="zona" length="100">
+                <comment>Define la zona a que pertenece el centro educativo</comment>
+            </column>
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="500">
+                <comment>Direcci\F3n exacta del centro educativo</comment>
+            </column>
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="50">
+                <comment>N\FAmeros de telefonos del centro educativo</comment>
+            </column>
+        </property>
+        <property name="nombreDirector" type="string">
+            <column name="nombre_director" length="250">
+                <comment>Nombre del director del centro educativo</comment>
+            </column>
+        </property>
+        <property name="turno" type="string">
+            <column name="turno" length="250">
+                <comment>Listado de turnos que atiende el centro educativo</comment>
+            </column>
+        </property>
+        <property name="nivelEducativo" type="string">
+            <column name="nivel_educativo" length="500">
+                <comment>Listado de niveles educativos que se atienden</comment>
+            </column>
+        </property>
+        <property name="opcionBtv" type="java.lang.Boolean">
+            <column name="opcion_btv">
+                <comment>Especifica si el centro educativo posee opci\F3n de Bachillerato T\E9cnico Vocacional (Si/No)</comment>
+            </column>
+        </property>
+        <property name="anioBtv" type="java.lang.Short">
+            <column name="anio_btv">
+                <comment>Alo en que se implement\F3 la opci\F3n de Bachillerato T\E9cnico Vocacional</comment>
+            </column>
+        </property>
+        <property name="btvImplementado" type="string">
+            <column name="btv_implementado" length="100">
+                <comment>Nombre de la opci\F3n del Bachillerato T\E9cnico Vocacional implementado en el centro educativo</comment>
+            </column>
+        </property>
+        <property name="numeroSeccionBtv" type="java.lang.Short">
+            <column name="numero_seccion_btv">
+                <comment>N\FAmero de secciones del Bachillerato T\E9cnico Vocacional</comment>
+            </column>
+        </property>
+        <property name="nombreAtp" type="string">
+            <column name="nombre_atp" length="100">
+                <comment>Nombre del Asistente T\E9cnico Pedag\F3gico</comment>
+            </column>
+        </property>
+        <property name="nombreAtg" type="string">
+            <column name="nombre_atg" length="100">
+                <comment>Nombre del Asistente T\E9cnico de Gesti\F3n</comment>
+            </column>
+        </property>
+        <property name="telefonoAtp" type="string">
+            <column name="telefono_atp" length="50">
+                <comment>N\FAmeros de tel\E9fonos del Asistente T\E9cnico Pedag\F3gico</comment>
+            </column>
+        </property>
+        <property name="telefonoAtg" type="string">
+            <column name="telefono_atg" length="50">
+                <comment>N\FAmeros de tel\E9fonos del Asistente T\E9cnico de Gesti\F3n</comment>
+            </column>
+        </property>
+        <property name="XGeopos" type="java.lang.Double">
+            <column name="x_geopos" precision="17" scale="17">
+                <comment>Coordenada georreferencial del centro educativo, Latitud</comment>
+            </column>
+        </property>
+        <property name="YGeopos" type="java.lang.Double">
+            <column name="y_geopos" precision="17" scale="17">
+                <comment>Coordenada georreferencial del centro educativo, Longitud</comment>
+            </column>
+        </property>
+        <property name="si" type="string">
+            <column name="si" length="50" />
+        </property>
+        <set name="seccions" table="seccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_centro_educativo" not-null="true">
+                    <comment>Identificador \FAnico</comment>
+                </column>
+            </key>
+            <one-to-many class="modelo.entidad.Seccion" />
+        </set>
+        <set name="seccions_1" table="seccion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_centro_educativo" not-null="true">
+                    <comment>Identificador \FAnico</comment>
+                </column>
+            </key>
+            <one-to-many class="modelo.entidad.Seccion" />
+        </set>
+    </class>
+</hibernate-mapping>

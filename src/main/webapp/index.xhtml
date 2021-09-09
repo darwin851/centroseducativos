@@ -13,7 +13,6 @@
             <p:commandButton value="Agregar Centro" actionListener="#{ceControl.limpiarCentros()}" oncomplete="PF('dialogoAgregar').show();" update=":formAgregar"/>
             <p:separator/>
         </h:form>
-        
          <h:form id="formListado">
             <p:dataTable id="tablaCentros" paginator="true" paginatorPosition="bottom" rows="10" var="centro" value="#{ceControl.listaCentros}" emptyMessage="No existen centros">
                            <p:column headerText="ID Centro">
