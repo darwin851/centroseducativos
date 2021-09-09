@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 sep. 2021 19:37:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.entidad.Seccion" table="seccion" schema="public" optimistic-lock="version">
+        <comment>Entidad que registra las Secciones del Centro Educativo por a\F1o</comment>
+        <id name="idSeccion" type="int">
+            <column name="id_seccion" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="centroEducativo" class="modelo.entidad.CentroEducativo" fetch="select">
+            <column name="id_centro_educativo" not-null="true">
+                <comment>Identificador \FAnico</comment>
+            </column>
+        </many-to-one>
+        <property name="anio" type="java.lang.Integer">
+            <column name="anio">
+                <comment>Especifica el a\F1o a que corresponde la data</comment>
+            </column>
+        </property>
+        <property name="nivelEducativo" type="string">
+            <column name="nivel_educativo" length="500">
+                <comment>Nivel educativo a que pertenece la secci\F3n</comment>
+            </column>
+        </property>
+        <property name="grado" type="string">
+            <column name="grado" length="500">
+                <comment>Especifica el grado a que corresponde los datos</comment>
+            </column>
+        </property>
+        <property name="seccion" type="string">
+            <column name="seccion" length="1000">
+                <comment>Especifica el n\FAmero o identificador de la secci\F3n</comment>
+            </column>
+        </property>
+        <property name="idTurno" type="java.lang.Integer">
+            <column name="id_turno" />
+        </property>
+        <property name="ciclo" type="string">
+            <column name="ciclo" length="250" />
+        </property>
+        <property name="idNivelEducativo" type="java.lang.Integer">
+            <column name="id_nivel_educativo" />
+        </property>
+        <property name="modAtencion" type="string">
+            <column name="mod_atencion" length="500" />
+        </property>
+        <property name="modEducativa" type="string">
+            <column name="mod_educativa" length="500" />
+        </property>
+        <property name="opcBachillerato" type="string">
+            <column name="opc_bachillerato" length="500" />
+        </property>
+        <property name="orgCurricular" type="string">
+            <column name="org_curricular" length="500" />
+        </property>
+        <property name="proEducativo" type="string">
+            <column name="pro_educativo" length="500" />
+        </property>
+        <property name="secEconomico" type="string">
+            <column name="sec_economico" length="500" />
+        </property>
+        <property name="pkSeccionSiges" type="java.lang.Integer">
+            <column name="pk_seccion_siges" />
+        </property>
+    </class>
+</hibernate-mapping>
